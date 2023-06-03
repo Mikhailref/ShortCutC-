@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShortCut.Models.Interfaces;
 using ShortCut.Utilities.DataBase;
+using ShortCut.Utilities.DataBase.DataBaseInteractionStrategyPattern;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,8 +22,8 @@ namespace ShortCut.Controllers
         [HttpGet("{id}")]
         public ISoftWare Get(int id)
         {
-            ISoftWare softWare=DatabaseSingleton.Instance.FetchSoftWareFromDatabase(id);
-            return softWare;
+            ISoftWare software=DatabaseSingleton.Instance.FetchSoftwareFromDatabase(id);
+            return software;
         }
 
         // POST api/<SoftWareController>

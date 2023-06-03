@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors;
+
 namespace ShortCut
 {
     public class Program
@@ -29,9 +32,11 @@ namespace ShortCut
 
             app.MapControllers();
 
-            app.UseCors(options => options.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500").AllowAnyHeader());
-
-            
+           
+            app.UseCors(options => options.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500", "https://mikhailref.github.io")
+                              .AllowAnyHeader()
+                              .AllowAnyMethod()
+                              .AllowCredentials());
 
             app.Run();
         }
